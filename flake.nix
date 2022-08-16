@@ -26,7 +26,7 @@
         };
 
         packages.default = buildGradle {
-          pname = "kt-test";
+          pname = "nix-kt-template";
 
           envSpec = ./gradle-env.json;
 
@@ -37,6 +37,8 @@
           installPhase = ''
             mkdir -p $out
             cp -r app/build/install/app/* $out
+            # for `nix run`, which wants an executable the same as the project name
+            ln -s $out/bin/app $out/bin/nix-kt-template
           '';
         };
 

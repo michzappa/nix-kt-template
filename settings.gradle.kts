@@ -7,5 +7,5 @@
  * in the user manual at https://docs.gradle.org/7.5/userguide/multi_project_builds.html
  */
 
-rootProject.name = "kt-test"
+rootProject.name = "nix-kt-template"
 include("app")
