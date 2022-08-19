@@ -1,6 +1,5 @@
 {
-  description =
-    "https://en.wikibooks.org/wiki/Write_Yourself_a_Scheme_in_48_Hours";
+  description = "a nix-enabled project template for kotlin applications";
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
