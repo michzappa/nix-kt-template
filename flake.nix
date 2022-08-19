@@ -29,14 +29,11 @@
           gradleFlags = [ "installDist" ];
           installPhase = ''
             mkdir -p $out
-            cp -r app/build/install/app/* $out
-
-            # for `nix run`, with an appropriately configured project
-            # this should be unnecessary
-            ln -s $out/bin/app $out/bin/nix-kt-template
+            cp -r app/build/install/nix-kt-template/* $out
           '';
           pname = "nix-kt-template";
           src = ./.;
+          version = "0.1";
         };
       });
 }

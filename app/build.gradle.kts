@@ -38,5 +38,6 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("kt.test.AppKt")
+    mainClass.set("AppKt")
+    applicationName = "nix-kt-template"
 }
