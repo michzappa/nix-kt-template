@@ -12,6 +12,9 @@ plugins {
 
     // Apply the application plugin to add support for building a CLI application in Java.
     application
+
+    // Apply GraalVM Native Image plugin
+    id("org.graalvm.buildtools.native") version "0.9.13"
 }
 
 repositories {
@@ -39,5 +42,19 @@ dependencies {
 application {
     // Define the main class for the application.
     mainClass.set("AppKt")
+    // Set name of 'installDist' artifacts
     applicationName = "nix-kt-template"
+}
+
+graalvmNative {
+    binaries {
+        named("main") {
+            // Disable native toolchain checking
+            buildArgs.add("-H:-CheckToolchain")
+            // Set executable name
+            imageName.set("nix-kt-template")
+        }
+    }
+    // Just use GRAALVM_HOME for finding the GraalVM installation
+    toolchainDetection.set(false)
 }
